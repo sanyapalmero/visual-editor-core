@@ -1,0 +1,48 @@
+﻿@model CoreEditor.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserSurname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserSurname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserOrganization)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserOrganization)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgFolder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgFolder)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
