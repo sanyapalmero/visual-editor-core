@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreEditor.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using Microsoft.EntityFrameworkCore;
 namespace CoreEditor
 {
     public class Startup
@@ -22,6 +23,9 @@ namespace CoreEditor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<CoreEditorContext>(
+                options => options.UseMySQL(Configuration.GetConnectionString("Default"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
