@@ -23,7 +23,9 @@ namespace CoreEditor.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ImgFolder");
+                    b.Property<string>("FileName");
+
+                    b.Property<string>("FilePath");
 
                     b.Property<string>("UserName")
                         .IsRequired();

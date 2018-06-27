@@ -22,6 +22,8 @@ namespace CoreEditor.Models
         [Display(Name = "Организация")]
         public string UserOrganization { get; set; }
 
-        public string ImgFolder { get; set; }
+        public string FileName { get; set; }
+
+        public string FilePath { get; set; }
     }
 }

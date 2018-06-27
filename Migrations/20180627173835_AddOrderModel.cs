@@ -14,7 +14,8 @@ namespace CoreEditor.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("MySQL:AutoIncrement", true),
-                    ImgFolder = table.Column<string>(nullable: true),
+                    FileName = table.Column<string>(nullable: true),
+                    FilePath = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(nullable: false),
                     UserOrganization = table.Column<string>(nullable: false),
                     UserPhone = table.Column<string>(nullable: false),

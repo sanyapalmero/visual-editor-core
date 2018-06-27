@@ -10,7 +10,7 @@ using System;
 namespace CoreEditor.Migrations
 {
     [DbContext(typeof(CoreEditorContext))]
-    [Migration("20180626172709_AddOrderModel")]
+    [Migration("20180627173835_AddOrderModel")]
     partial class AddOrderModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,9 @@ namespace CoreEditor.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ImgFolder");
+                    b.Property<string>("FileName");
+
+                    b.Property<string>("FilePath");
 
                     b.Property<string>("UserName")
                         .IsRequired();
