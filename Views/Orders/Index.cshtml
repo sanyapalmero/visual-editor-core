@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Заказы</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -25,10 +22,7 @@
                     @Html.DisplayNameFor(model => model.UserOrganization)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FileName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FilePath)
+                    Макет
                 </th>
             <th></th>
         </tr>
@@ -49,15 +43,11 @@
                 @Html.DisplayFor(modelItem => item.UserOrganization)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FileName)
+
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FilePath)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.ID">Посмотреть</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
             </td>
         </tr>
 }
