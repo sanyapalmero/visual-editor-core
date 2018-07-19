@@ -10,9 +10,10 @@ using System;
 namespace CoreEditor.Migrations
 {
     [DbContext(typeof(CoreEditorContext))]
-    partial class CoreEditorContextModelSnapshot : ModelSnapshot
+    [Migration("20180719065200_AddMaterialModel")]
+    partial class AddMaterialModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
