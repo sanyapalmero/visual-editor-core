@@ -24,6 +24,9 @@
                 <th>
                     Макет
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
             <th></th>
         </tr>
     </thead>
@@ -43,7 +46,26 @@
                 @Html.DisplayFor(modelItem => item.UserOrganization)
             </td>
             <td>
-
+                <button type="button" class="btn-link" data-toggle="modal" data-target="#imgOrder-@item.ID">Открыть макет</button>
+                <div class="modal fade" id="imgOrder-@item.ID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div style="margin-right: 550px;" class="modal-dialog" role="document">
+                        <div style="width: 950px; text-align:center;" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Макет</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="@Html.DisplayFor(modelItem => item.FilePath)">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.ID">Посмотреть</a> |
