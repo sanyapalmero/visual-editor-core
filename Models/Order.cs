@@ -25,5 +25,8 @@ namespace CoreEditor.Models
         public string FileName { get; set; }
 
         public string FilePath { get; set; }
+
+        [Display(Name = "Статус заказа")]
+        public OrderStatus Status { get; set; }
     }
 }
