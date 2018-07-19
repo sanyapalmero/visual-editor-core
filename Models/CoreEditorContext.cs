@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
+using CoreEditor.Models;
 
 namespace CoreEditor.Models
 {
@@ -16,6 +17,8 @@ namespace CoreEditor.Models
         }
 
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Material> Material { get; set; }
 
         public IDbConnection Connect()
         {
