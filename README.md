@@ -11,5 +11,5 @@
 * `dotnet restore` - установить все зависимости.
 * `dotnet ef migrations add <название>` - сгенерировать миграцию БД.
 * `dotnet ef database update` - применить все миграции.
-* `dotnet aspnet-codegenerator controller -name <название класса> -namespace MisBus.Controllers -outDir Controllers -async -m <модель> -dc MisBusContext -udl` - сгенерировать CRUD-контроллер.
-* `setx ASPNETCORE_ENVIRONMENT "Development"` - изменение переменной среды.
+* `dotnet aspnet-codegenerator controller -name <название контроллера> -namespace CoreEditor.Controllers -outDir Controllers -async -m <используемая модель> -dc CoreEditorContext -udl` - сгенерировать CRUD-контроллер.
+* `setx ASPNETCORE_ENVIRONMENT "<имя среды>"` - изменение переменной среды: Development/Production
