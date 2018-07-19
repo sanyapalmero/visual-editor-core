@@ -6,16 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoreEditor.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CoreEditor.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly CoreEditorContext _context;
+        private readonly IHostingEnvironment _appEnvironment;
 
-        public OrdersController(CoreEditorContext context)
+        public OrdersController(CoreEditorContext context, IHostingEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: Orders
@@ -53,13 +58,23 @@ namespace CoreEditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status")] Order order)
+        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status")] Order order, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (file != null)
+                {
+                    string path = "/UsersImg/" + file.FileName;
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                    order.FileName = file.FileName;
+                    order.FilePath = path;
+                    _context.Add(order);
+                    _context.SaveChanges();
+                    //return RedirectToAction(nameof(Index));
+                }
             }
             return View(order);
         }
