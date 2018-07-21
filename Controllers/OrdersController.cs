@@ -159,6 +159,52 @@ namespace CoreEditor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> StatusUpdate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders.SingleOrDefaultAsync(m => m.ID == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return View(order);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> StatusUpdate(int id, [Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status")] Order order)
+        {
+            if (id != order.ID)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(order);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!OrderExists(order.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(order);
+        }
+
         private bool OrderExists(int id)
         {
             return _context.Orders.Any(e => e.ID == id);
