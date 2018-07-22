@@ -42,6 +42,7 @@ namespace CoreEditor
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();//for using wwwroot folder
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
