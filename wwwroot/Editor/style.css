@@ -1,0 +1,462 @@
+body, html{
+	margin: 0;/*отступы со всех сторон отключены*/
+	width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*отступы у шапки*/
+.header{
+	margin: 0;
+}
+
+/*стили для логотипа*/
+.logo{
+	width: 60px;
+}
+
+.logo img{
+	height: 40px;
+	position:absolute;
+	top: 10px; 
+	left: 10px;
+}
+
+nav {
+	background-color: crimson;/*заливка nav'а*/
+}
+
+/*стили для ul 1ого уровня*/
+nav ul {
+	padding: 0;
+  	margin: 0;
+	list-style: none;
+	position: relative;
+}
+
+/*стили для li 1ого уровня*/
+nav ul li {
+	display:inline-block;
+	background-color: crimson;
+}
+
+/*стили ссылок в шапке*/
+nav a {
+	display:block;
+	padding:0 10px;	
+	line-height: 60px;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+/*стили ссылок при наведении*/
+nav a:hover { 
+	background-color: gold; 
+}
+
+/*выпадающие списки скрыты по умолчанию*/
+nav ul ul {
+	display: none;
+	position: absolute; 
+	
+}
+	
+/*отображение выпадающих списков при наведении*/
+nav ul li:hover > ul {
+	display:inherit;
+}
+
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:200px;
+}
+	
+/*стили для выпадающего списка*/
+nav ul ul li {
+	width:200px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/*положения кнопок в шапке*/
+.reg-button{
+	float: right;
+}
+
+.auth-button{
+	float: right;
+}
+
+.adv-type1{
+	margin-left: 500px;
+}
+
+.editor-page{
+	margin-left: 500px;
+}
+
+/*кнопка "добавить текст"*/
+.add-button{
+	margin-top: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	margin-left: 10px;
+	font-size: 16px;
+	padding: 10px;
+	width: 260px;
+	/*width: 195px;*/
+}
+
+.add-button:hover{
+	background: red;
+}
+
+.add-button:active{
+	background: #2F4F4F;
+}
+
+/*отключение отображения кнопки "Загрузить файл"*/
+input[type="file"] {
+    display: none;
+}
+
+/*li класс - "загрузить изображение"*/
+.img-button{
+	margin-top: 20px;
+}
+
+/*кнопка загрузить изображение*/
+.load-button{
+	color: white;
+	background: crimson;
+	border: none;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 16px;
+	padding: 10px;
+	width: 260px;
+	padding-left: 45px;
+	padding-right: 39.5px;
+	/*width: 195px;*/
+}
+
+.load-button:hover{
+	background: red;
+}
+
+.load-button:active{
+	background: #2F4F4F;
+}
+
+/*селект с цветами для фона*/
+.color-select{
+	margin-top: 20px;
+	margin-left: 10px;
+	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
+	color: white;
+	background: crimson;
+	font-size: 16px;
+	border: none;
+}
+
+.color-select:hover{
+	background: red;
+}
+
+.tools-label{
+	margin-left: 10px;
+}
+
+/*стили для кнопки "скачать картинку"*/
+.save-image{
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.save-image:hover{
+	background: red;
+}
+
+.save-image:active{
+	background: #2F4F4F;
+}
+
+/*стили для кнопок удаления элементов*/
+.del-text{
+	margin-left: 10px;
+	margin-top: -10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
+}
+
+.del-text:hover{
+	background: red;
+}
+
+.del-text:active{
+	background: #2F4F4F;
+}
+
+.del-img{
+	margin-left: 10px;
+	margin-top: -10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+}
+
+.del-img:hover{
+	background: red;
+}
+
+.del-img:active{
+	background: #2F4F4F;
+}
+
+.del-all{
+	margin-left: 10px;
+	margin-top: -10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
+}
+
+.del-all:hover{
+	background: red;
+}
+
+.del-all:active{
+	background: #2F4F4F;
+}
+
+/*стили для футера*/
+.footer p{
+	margin-top: 0;
+	padding-top: 20px;
+	color: white;
+	text-align: center;
+}
+
+.footer {
+	height: 60px;
+	background-color: crimson;
+	padding-bottom: 10px;
+}
+
+.icons{
+	display: inline-block;
+	margin-left: 50%;
+	margin-top: 20px;
+	width: 70px;
+}
+
+/*класс в редакторе*/
+.main{
+	background-color: #58C9A0;/*заливка главного фона*/
+	height: 100%;
+}
+
+/*левое меню*/
+.left-menu{
+	display: block;
+	margin-left: 0;
+	float: left;
+	background-color: #58C9A0;;
+	height: 100%;
+	width: 290px;
+}
+
+/*редактор*/
+.editor{
+	display: inline-block;
+	height: 100%;
+}
+
+/*класс тега ul где хранятся кнопки в левом меню*/
+.tools{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+/*стили для поля редактора*/
+.editor-field{
+	margin-top: 0;
+	margin-left: 0;
+	background: white;/*#F5F5F5*/
+	/*width: 1092px;
+    height: 848px;*/
+    width: 900px;
+    height: 100%;
+    /*overflow: hidden;
+    display: flex;
+    justify-content: space-between;*/
+}
+
+/*стили для добавляемых блоков текста*/
+.textblock {
+	font-size: x-large;
+	border: thin solid black;
+	width: 11em;
+	text-align: center;
+	padding:10px;
+	position: relative;
+	overflow:hidden;
+}
+
+/*стили для добавляемой картинки*/
+.imageblock {
+	text-align: center;
+	border:2px solid #000;
+	/*height: 223px;*/
+	/*width: 32.5%;*/
+	height: 223px;
+	width: 223px;
+	display: inline-block;
+}
+
+/*стили для инструментов добавляемых блоков текста (шрифт, размер, цвет)*/
+.texttools{
+	margin-left: 10px;
+}
+
+/*кнопка "предварительный просмотр"*/
+.preview{
+	margin-bottom: 10px;
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	padding: 9px;
+	padding-left: 20px;
+}
+
+.preview:hover{
+	background: red;
+}
+
+.preview:active{
+	background: #2F4F4F;
+}
+
+.preview input{
+	opacity: 0;
+}
+
+/*цена*/
+.price {
+	text-align: center;
+	clear: both;
+}
+
+/*стили для указателя вращения элементов*/
+.ui-rotatable-handle {
+	background: red;
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+	height: 10px;
+	left: 50%;
+	margin: 0 0 0 -5px;
+	position: absolute;
+	top: -5px;
+	width: 10px;
+}
+.ui-rotatable-handle.clone {
+	visibility:  hidden;
+}
+
+/*---------------------------------------index.html------------------------------*/
+.block1 h1{
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding-top: 100px;
+}
+
+.block1 p{
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.block1 ul{
+	color: white;
+	font-size: 18px;
+	float: left;
+	padding-left: 43%;
+	margin-top: 0;
+}
+
+.block1{
+	margin-top: 0;
+	height: 500px;
+	background-color: #58C9A0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.block2{
+	margin-top: -20px;
+	text-align: center;
+	background-color: gold;
+	height: 500px;
+}
+
+.block2 h2{
+	padding-top: 15px;
+}
+
+.block3{
+	margin-top: -20px;
+	background-color: lightskyblue; /*#edeef0*/
+	text-align: center;
+}
+
+.block3 h3{
+	padding-top: 15px;
+}
+
+.block3 p{
+	font-weight:bold;
+}
+
+.block4{
+	text-align: center;
+	background-color: greenyellow;
+	height: 500px;
+}
+
+.block4 p{
+	margin-top: 0;
+	padding-top: 15px;
+	font-weight:bold;
+	font-size: 20px;
+}
