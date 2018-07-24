@@ -20,6 +20,8 @@ namespace CoreEditor.Models
 
         public DbSet<Material> Material { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public IDbConnection Connect()
         {
             var connection = new MySqlConnection(ConnectionString);
