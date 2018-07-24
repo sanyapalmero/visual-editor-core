@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using CoreEditor.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CoreEditor
 {
@@ -23,6 +24,12 @@ namespace CoreEditor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Auth/Login");
+                });
+
             services.AddMvc();
             services.AddDbContext<CoreEditorContext>(
                 options => options.UseMySQL(Configuration.GetConnectionString("Default"))
@@ -42,8 +49,9 @@ namespace CoreEditor
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseDefaultFiles();//for using wwwroot folder
-            app.UseStaticFiles();
+            app.UseDefaultFiles();//for making index.html page as default page
+            app.UseStaticFiles();//for using wwwroot folder
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
