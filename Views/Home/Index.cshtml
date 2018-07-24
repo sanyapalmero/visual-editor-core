@@ -4,4 +4,14 @@
 
 <div class="jumbotron">
     <h1>Админ панель Trio56</h1>
+    @if(User.Identity.IsAuthenticated)
+    {
+        <p class="lead">Добро пожаловать</p>
+    }
+    else
+    {
+        <p class="lead">Пожалуйста, войдите, чтобы начать работу.</p>
+        <a class="btn btn-primary btn-lg" asp-controller="Auth" asp-action="Login">Войти</a>
+        <a class="btn btn-primary btn-lg" href="/">Вернуться на сайт</a>
+    }
 </div>
