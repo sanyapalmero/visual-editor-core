@@ -1,5 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
+//this model was created for correct using "password" field
 namespace CoreEditor.Models
 {
     public class UserViewModel
