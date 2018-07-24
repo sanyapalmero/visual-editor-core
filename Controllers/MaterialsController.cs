@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoreEditor.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreEditor.Controllers
 {
+    [Authorize]
     public class MaterialsController : Controller
     {
         private readonly CoreEditorContext _context;
@@ -49,7 +51,7 @@ namespace CoreEditor.Controllers
         }
 
         // POST: Materials/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,7 +83,7 @@ namespace CoreEditor.Controllers
         }
 
         // POST: Materials/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

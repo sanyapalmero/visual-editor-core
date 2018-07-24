@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoreEditor.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreEditor.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly CoreEditorContext _context;

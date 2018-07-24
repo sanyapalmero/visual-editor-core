@@ -9,9 +9,11 @@ using CoreEditor.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreEditor.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly CoreEditorContext _context;
