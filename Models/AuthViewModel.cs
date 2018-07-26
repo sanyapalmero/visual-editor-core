@@ -11,5 +11,7 @@ namespace CoreEditor.Models
         [Required]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

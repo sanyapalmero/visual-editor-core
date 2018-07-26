@@ -19,14 +19,16 @@ namespace CoreEditor.Controllers
             _context = context;
         }
 
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
-            return View();
+            AuthViewModel model = new AuthViewModel();
+            model.ReturnUrl = returnUrl;
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("Login, Password")] AuthViewModel model)
+        public async Task<IActionResult> Login([Bind("Login, Password, ReturnUrl")] AuthViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +39,15 @@ namespace CoreEditor.Controllers
                 if (user != null)
                 {
                     await Authenticate(model.Login);
-                    return Redirect("../Home/Index");
+                    //return Redirect("../Home/Index");
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return Redirect("../Home/Index");
+                    }
                 }
                 else
                 {
