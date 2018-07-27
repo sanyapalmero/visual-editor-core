@@ -18,7 +18,7 @@ body, html{
 .logo img{
 	height: 40px;
 	position:absolute;
-	top: 10px; 
+	top: 10px;
 	left: 10px;
 }
 
@@ -43,7 +43,7 @@ nav ul li {
 /*стили ссылок в шапке*/
 nav a {
 	display:block;
-	padding:0 10px;	
+	padding:0 10px;
 	line-height: 60px;
 	text-decoration: none;
 	font-size: 16px;
@@ -52,17 +52,17 @@ nav a {
 }
 
 /*стили ссылок при наведении*/
-nav a:hover { 
-	background-color: gold; 
+nav a:hover {
+	background-color: gold;
 }
 
 /*выпадающие списки скрыты по умолчанию*/
 nav ul ul {
 	display: none;
-	position: absolute; 
-	
+	position: absolute;
+
 }
-	
+
 /*отображение выпадающих списков при наведении*/
 nav ul li:hover > ul {
 	display:inherit;
@@ -70,10 +70,10 @@ nav ul li:hover > ul {
 
 nav ul ul ul li {
 	position: relative;
-	top:-60px; 
+	top:-60px;
 	left:200px;
 }
-	
+
 /*стили для выпадающего списка*/
 nav ul ul li {
 	width:200px;
@@ -353,6 +353,30 @@ input[type="file"] {
 	background: crimson;
 	padding: 9px;
 	padding-left: 20px;
+}
+
+/*стили для ссылки "сделать заказ"*/
+.order-create{
+	margin-top: 17px;
+}
+
+.order-create a{
+	color: white;
+	text-decoration: none;
+	background: crimson;
+	margin-left: 10px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 77px;
+	padding-right: 77px;
+}
+
+.order-create a:hover{
+	background: red;
+}
+
+.order-create a:active{
+	background: #2F4F4F;
 }
 
 .preview:hover{
