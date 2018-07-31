@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoreEditor.Models
 {
@@ -28,5 +29,12 @@ namespace CoreEditor.Models
 
         [Display(Name = "Статус заказа")]
         public OrderStatus Status { get; set; }
+
+        [ForeignKey("Material")]
+        [Display(Name = "Материал")]
+        public int? MaterialId { get; set; }
+
+        [Display(Name = "Материал")]
+        public Material Material { get; set; }
     }
 }
