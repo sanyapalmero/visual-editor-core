@@ -249,7 +249,9 @@ function RenderImage(){
 	if(check == true){
 		var doc = document;
 		html2canvas(doc.querySelector("#editorfield")).then(canvas => {
-			var name = "image.png";
+			var date = new Date();
+			var time = date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString() + date.getHours().toString() + date.getMinutes().toString() + date.getSeconds().toString();
+			var name = "image" + time + ".png";
 			const a = doc.createElement("a");
 			doc.body.appendChild(a);
 			a.style = "display: none";
