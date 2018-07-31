@@ -34,10 +34,22 @@
             @Html.DisplayFor(model => model.UserOrganization)
         </dd>
         <dt>
-            Макет
+            @Html.DisplayNameFor(model => model.Material)
         </dt>
         <dd>
-
+            @Html.DisplayFor(model => model.Material.MaterialName)
+        </dd>
+        <dt>
+            Размер
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Material.MaterialSize)
+        </dd>
+        <dt>
+            Цена
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Material.MaterialPrice)
         </dd>
     </dl>
 </div>
