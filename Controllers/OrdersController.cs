@@ -76,7 +76,7 @@ namespace CoreEditor.Controllers
                     order.FilePath = path;
                     _context.Add(order);
                     _context.SaveChanges();
-                    //return RedirectToAction(nameof(Index));
+                    ViewData["order-message"] = "Заказ успешно отправлен!";
                 }
             }
             return View(order);
