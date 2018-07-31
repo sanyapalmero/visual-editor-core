@@ -82,15 +82,6 @@ nav ul ul li {
 	position: relative;
 }
 
-/*положения кнопок в шапке*/
-.reg-button{
-	float: right;
-}
-
-.auth-button{
-	float: right;
-}
-
 .adv-type1{
 	margin-left: 500px;
 }
@@ -363,7 +354,7 @@ input[type="file"] {
 .order-create a{
 	color: white;
 	text-decoration: none;
-	background: crimson;
+	background: yellowgreen;
 	margin-left: 10px;
 	padding-top: 7px;
 	padding-bottom: 7px;
@@ -372,7 +363,7 @@ input[type="file"] {
 }
 
 .order-create a:hover{
-	background: red;
+	background: yellow;
 }
 
 .order-create a:active{
