@@ -28,7 +28,9 @@ namespace CoreEditor.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Orders.ToListAsync());
+            var coreEditorContext = _context.Orders.Include(r => r.Material);
+            return View(await coreEditorContext.ToListAsync());
+            //return View(await _context.Orders.ToListAsync());
         }
 
         // GET: Orders/Details/5
@@ -40,8 +42,8 @@ namespace CoreEditor.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders
-                .SingleOrDefaultAsync(m => m.ID == id);
+            var order = await _context.Orders.Include(r => r.Material).SingleOrDefaultAsync(m => m.ID == id);
+            //var order = await _context.Orders.SingleOrDefaultAsync(m => m.ID == id);
             if (order == null)
             {
                 return NotFound();
@@ -53,6 +55,7 @@ namespace CoreEditor.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
+            ViewData["MaterialId"] = new SelectList(_context.Material, "ID", "MaterialSize", "MaterialSize", "MaterialName");
             return View();
         }
 
@@ -61,7 +64,7 @@ namespace CoreEditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status")] Order order, IFormFile file)
+        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status,MaterialId")] Order order, IFormFile file)
         {
             if (ModelState.IsValid)
             {
