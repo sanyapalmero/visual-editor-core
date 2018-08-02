@@ -34,22 +34,46 @@
             @Html.DisplayFor(model => model.UserOrganization)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.AdvType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdvType.TypeName)
+        </dd>
+        <dt>
+            Размер вида
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdvType.TypeSize)
+        </dd>
+        <dt>
+            Цена вида
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdvType.TypePrice)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Material)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Material.MaterialName)
         </dd>
         <dt>
-            Размер
+            Размер материала
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Material.MaterialSize)
         </dd>
         <dt>
-            Цена
+            Цена материала
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Material.MaterialPrice)
+        </dd>
+        <dt>
+            Итоговая цена
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FinalPrice)
         </dd>
     </dl>
 </div>
