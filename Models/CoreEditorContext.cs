@@ -22,6 +22,8 @@ namespace CoreEditor.Models
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<AdvType> AdvTypes { get; set; }
+
         public IDbConnection Connect()
         {
             var connection = new MySqlConnection(ConnectionString);
