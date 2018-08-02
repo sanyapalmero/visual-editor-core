@@ -28,7 +28,9 @@ namespace CoreEditor.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var coreEditorContext = _context.Orders.Include(r => r.Material);
+            var coreEditorContext = _context.Orders
+            .Include(r => r.Material)
+            .Include(r => r.AdvType);
             return View(await coreEditorContext.ToListAsync());
             //return View(await _context.Orders.ToListAsync());
         }
@@ -42,7 +44,10 @@ namespace CoreEditor.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders.Include(r => r.Material).SingleOrDefaultAsync(m => m.ID == id);
+            var order = await _context.Orders
+            .Include(r => r.Material)
+            .Include(r => r.AdvType)
+            .SingleOrDefaultAsync(m => m.ID == id);
             //var order = await _context.Orders.SingleOrDefaultAsync(m => m.ID == id);
             if (order == null)
             {
@@ -78,6 +83,17 @@ namespace CoreEditor.Controllers
                     }
                     order.FileName = file.FileName;
                     order.FilePath = path;
+                    var materialPrice = _context.Material.Where(u => u.ID == order.MaterialId).SingleOrDefault().MaterialPrice;
+                    if (materialPrice == null)
+                    {
+                        materialPrice = 0;
+                    }
+                    var advtypePrice = _context.AdvTypes.Where(u => u.ID == order.AdvTypeId).SingleOrDefault().TypePrice;
+                    if (advtypePrice == null)
+                    {
+                        advtypePrice = 0;
+                    }
+                    order.FinalPrice = materialPrice + advtypePrice;
                     _context.Add(order);
                     _context.SaveChanges();
                     ViewData["order-message"] = "Заказ успешно отправлен!";
