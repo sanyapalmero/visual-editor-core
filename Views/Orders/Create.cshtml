@@ -55,6 +55,17 @@
                 <span asp-validation-for="FileName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AdvTypeId" class="control-label"></label>
+                <select
+                    id="AdvType"
+                    asp-for="AdvTypeId"
+                    class ="form-control"
+                    asp-items="ViewBag.AdvTypeId">
+                    <option value="">Нет</option>
+                </select>
+                <span asp-validation-for="AdvType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="MaterialId" class="control-label"></label>
                 <select
                     id="Material"
