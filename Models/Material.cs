@@ -14,6 +14,6 @@ namespace CoreEditor.Models
         public string MaterialSize { get; set; }
 
         [Display(Name = "Цена")]
-        public string MaterialPrice { get; set; }
+        public int? MaterialPrice { get; set; }
     }
 }
