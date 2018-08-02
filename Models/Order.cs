@@ -43,5 +43,7 @@ namespace CoreEditor.Models
 
         [Display(Name = "Вид рекламы")]
         public AdvType AdvType { get; set; }
+
+        public int? FinalPrice { get; set; }
     }
 }
