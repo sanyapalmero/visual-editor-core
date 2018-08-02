@@ -282,6 +282,11 @@ input[type="file"] {
 	width: 290px;
 }
 
+.right-menu{
+	float: right;
+	margin-right: 50px;
+}
+
 /*редактор*/
 .editor{
 	display: inline-block;
@@ -302,7 +307,7 @@ input[type="file"] {
 	background: white;/*#F5F5F5*/
 	/*width: 1092px;
     height: 848px;*/
-    width: 900px;
+    width: 850px;
     height: 100%;
     /*overflow: hidden;
     display: flex;

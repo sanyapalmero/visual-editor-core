@@ -113,6 +113,10 @@ function AddElememt(){
 		wrapped.appendChild(select3);
 		var br = "</br></br>";
 		$("#texttools").append(br);
+		var textlayout = doc.createElement('p');
+		textlayout.setAttribute("id","text"+count+"");
+		textlayout.innerHTML = "Текстовое поле "+count+"";
+		$("#rightmenu").append(textlayout);
 	}
 	else
 	{
@@ -178,7 +182,11 @@ function LoadImage(f) {
 		    }
 	    };
 	    fr.readAsDataURL(fls[0]);
-	    $("#img-load").val('');//clear file after load
+		$("#img-load").val('');//clear file after load
+		var imglayout = doc.createElement('p');
+		imglayout.setAttribute("id","img"+count+"");
+		imglayout.innerHTML = "Изображение";
+		$("#rightmenu").append(imglayout);
 	}else{
 		alert("Количество картинок превышено");
 	}
