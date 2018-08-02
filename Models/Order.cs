@@ -36,5 +36,12 @@ namespace CoreEditor.Models
 
         [Display(Name = "Материал")]
         public Material Material { get; set; }
+
+        [ForeignKey("AdvType")]
+        [Display(Name = "Вид рекламы")]
+        public int? AdvTypeId { get; set; }
+
+        [Display(Name = "Вид рекламы")]
+        public AdvType AdvType { get; set; }
     }
 }
