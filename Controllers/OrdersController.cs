@@ -56,6 +56,7 @@ namespace CoreEditor.Controllers
         public IActionResult Create()
         {
             ViewData["MaterialId"] = new SelectList(_context.Material, "ID", "MaterialSize", "MaterialSize", "MaterialName");
+            ViewData["AdvTypeId"] = new SelectList(_context.AdvTypes, "ID", "TypeSize", "TypeSize", "TypeName");
             return View();
         }
 
@@ -64,7 +65,7 @@ namespace CoreEditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status,MaterialId")] Order order, IFormFile file)
+        public async Task<IActionResult> Create([Bind("ID,UserName,UserSurname,UserPhone,UserOrganization,FileName,FilePath,Status,MaterialId,AdvTypeId")] Order order, IFormFile file)
         {
             if (ModelState.IsValid)
             {
