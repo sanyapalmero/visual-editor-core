@@ -10,9 +10,10 @@ using System;
 namespace CoreEditor.Migrations
 {
     [DbContext(typeof(CoreEditorContext))]
-    partial class CoreEditorContextModelSnapshot : ModelSnapshot
+    [Migration("20180802154238_AddAdvTypeModel")]
+    partial class AddAdvTypeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,8 +58,6 @@ namespace CoreEditor.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AdvTypeId");
-
                     b.Property<string>("FileName");
 
                     b.Property<string>("FilePath");
@@ -80,8 +79,6 @@ namespace CoreEditor.Migrations
                         .IsRequired();
 
                     b.HasKey("ID");
-
-                    b.HasIndex("AdvTypeId");
 
                     b.HasIndex("MaterialId");
 
@@ -106,10 +103,6 @@ namespace CoreEditor.Migrations
 
             modelBuilder.Entity("CoreEditor.Models.Order", b =>
                 {
-                    b.HasOne("CoreEditor.Models.AdvType", "AdvType")
-                        .WithMany()
-                        .HasForeignKey("AdvTypeId");
-
                     b.HasOne("CoreEditor.Models.Material", "Material")
                         .WithMany()
                         .HasForeignKey("MaterialId");
